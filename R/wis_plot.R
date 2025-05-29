@@ -670,7 +670,7 @@ wis_plot <- function(data, var, sub, vislabel=TRUE, biomarker_list=NULL, mh_list
           new_scale("colour")+
           geom_point(data=df.pib_lim, aes(x=age_pib, y=my.ymin + 1.05*(my.ymax-my.ymin), 
                                           colour=pib_trunc, shape="PiB/NAV"),  size=4)+
-          scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=1.15, na.value="black",
+          scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=1.145, na.value="black",
                                  breaks=c(1.10, 1.15, 1.19),
                                  limits=c(1.10, 1.19),
                                  labels=c("-", "", "+"),
@@ -698,7 +698,7 @@ wis_plot <- function(data, var, sub, vislabel=TRUE, biomarker_list=NULL, mh_list
             new_scale("colour")+
             geom_point(data=df.pib_lim, aes(x=age_pib, y=my.ymin + 1.05*(my.ymax-my.ymin), 
                                             colour=pib_trunc, shape="PiB/NAV"),  size=4)+
-            scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=1.15, na.value="black",
+            scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=1.145, na.value="black",
                                    breaks=c(1.10, 1.15, 1.19),
                                    limits=c(1.10, 1.19),
                                    labels=c("-", "", "+"),
@@ -715,7 +715,7 @@ wis_plot <- function(data, var, sub, vislabel=TRUE, biomarker_list=NULL, mh_list
           outplot <- 
             outplot +
             new_scale("colour")+
-            scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=1.15, na.value="black",
+            scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=1.145, na.value="black",
                                    breaks=c(1.10, 1.15, 1.19),
                                    limits=c(1.10, 1.19),
                                    labels=c("-", "", "+"),
@@ -756,7 +756,7 @@ wis_plot <- function(data, var, sub, vislabel=TRUE, biomarker_list=NULL, mh_list
             new_scale("colour")+
             geom_point(data=df.pib_lim, aes(x=age_pib, y=my.ymin + 1.05*(my.ymax-my.ymin), 
                                             colour=pib_trunc, shape="PiB/NAV"),  size=4)+
-            scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=1.15, na.value="black",
+            scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=1.145, na.value="black",
                                    breaks=c(1.10, 1.15, 1.19),
                                    limits=c(1.10, 1.19),
                                    labels=c("-", "", "+"),
