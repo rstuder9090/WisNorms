@@ -672,6 +672,7 @@ wis_plot <- function(data, var, sub, vislabel=TRUE, biomarker_list=NULL, mh_list
                                           colour=pib_trunc, shape="PiB/NAV"),  size=4)+
           scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=1.15, na.value="black",
                                  breaks=c(1.10, 1.15, 1.19),
+                                 limits=c(1.10, 1.19),
                                  labels=c("-", "", "+"),
                                  name="Biomarker")+
           scale_shape_manual(values = shapes, 
@@ -699,6 +700,7 @@ wis_plot <- function(data, var, sub, vislabel=TRUE, biomarker_list=NULL, mh_list
                                             colour=pib_trunc, shape="PiB/NAV"),  size=4)+
             scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=1.15, na.value="black",
                                    breaks=c(1.10, 1.15, 1.19),
+                                   limits=c(1.10, 1.19),
                                    labels=c("-", "", "+"),
                                    name="Biomarker")+
             scale_shape_manual(values = shapes, 
@@ -715,6 +717,7 @@ wis_plot <- function(data, var, sub, vislabel=TRUE, biomarker_list=NULL, mh_list
             new_scale("colour")+
             scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=1.15, na.value="black",
                                    breaks=c(1.10, 1.15, 1.19),
+                                   limits=c(1.10, 1.19),
                                    labels=c("-", "", "+"),
                                    name="Biomarker") +
             geom_point(data=df.pib_lim, aes(x=age_pib, y=my.ymin + 1.05*(my.ymax-my.ymin), 
@@ -755,6 +758,7 @@ wis_plot <- function(data, var, sub, vislabel=TRUE, biomarker_list=NULL, mh_list
                                             colour=pib_trunc, shape="PiB/NAV"),  size=4)+
             scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=1.15, na.value="black",
                                    breaks=c(1.10, 1.15, 1.19),
+                                   limits=c(1.10, 1.19),
                                    labels=c("-", "", "+"),
                                    name="Biomarker")+
             scale_shape_manual(values = shapes, 
