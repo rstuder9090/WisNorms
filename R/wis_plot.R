@@ -636,7 +636,7 @@ wis_plot <- function(data, var, sub, vislabel=TRUE, biomarker_list=NULL, mh_list
           new_scale("colour")+
           geom_point(data=df.ptau_lim, aes(x=age_ptau, y=my.ymin + 1.25*(my.ymax-my.ymin), 
                                            colour=ptau_bin, shape="pTau217"), size=4)+
-          scale_colour_gradient2(low="blue", mid="yellow", high="red", midpoint=2, na.value="black",
+          scale_colour_gradient2(low="blue", mid="yellow", high="orange", midpoint=2, na.value="black",
                                  breaks=c(1,2,3),
                                  labels=c("-", "","+"),
                                  name="Biomarker") +
