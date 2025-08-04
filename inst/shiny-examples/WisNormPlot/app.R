@@ -103,7 +103,8 @@ ui <- fluidPage(
                     h2(textOutput("rrqSubject")),
                     h3(column(width=6, htmlOutput("rrqHeader1")),
                       column(width=6, htmlOutput("rrqHeader2"))),
-                    h3(column(width=12, htmlOutput("rrqHeader3"))),
+                    h3(column(width=6, htmlOutput("rrqHeader3")),
+                       column(width=6, htmlOutput("rrqHeader4"))),
                     tabsetPanel(type = "tabs",
                                 tabPanel("Plot", plotOutput("rrqPlot", width="100%")),
                                 tabPanel("Table", tableOutput("rrqTable")),
@@ -134,6 +135,9 @@ server <- function(input, output, session) {
                base.readcat.f = factor(base.readcat,
                                        levels=c(3,2,1,0),
                                        ordered=TRUE),
+               apoe.f = factor(apoe, 
+                               levels=c("22", "23", "24", "33", "34", "44"), 
+                               ordered = TRUE),
                age = age.L+meanage)
       contrasts(df$ed.ba.f) = contr.treatment(n=c(1:0), base=1) # Comparison group: Those with a BA
       contrasts(df$gender.f) = contr.treatment(n=c(1:0), base=1) # Comparison group: Women
@@ -157,6 +161,9 @@ server <- function(input, output, session) {
                base.readcat.f = factor(base.readcat,
                                        levels=c(3,2,1,0),
                                        ordered=TRUE),
+               apoe.f = factor(apoe, 
+                               levels=c("22", "23", "24", "33", "34", "44"), 
+                               ordered = TRUE),
                age = age.L+meanage)
       contrasts(df$ed.ba.f) = contr.treatment(n=c(1:0), base=1) # Comparison group: Those with a BA
       contrasts(df$gender.f) = contr.treatment(n=c(1:0), base=1) # Comparison group: Women
@@ -545,6 +552,25 @@ server <- function(input, output, session) {
     label3=paste("Last dx:",demos$last_dx)
     
     HTML(label3)
+  })
+  
+  output$rrqHeader4 <- renderUI({
+    req(input$id)
+    
+    inid  <- str_pad(input$id, 4, side="left", pad="0")
+    df <- dataInput()
+    
+    df <- filter(df, id==inid) %>%
+      arrange(visno)
+    if (length(na.omit(df$apoe.f))>0) {
+      df <- filter(df, !is.na(apoe.f))
+    }
+    demos   <- summarize(df,
+                         apoe=last(apoe.f))
+    
+    label4=paste("APOE:",demos$apoe)
+    
+    HTML(label4)
   })
 }
 
